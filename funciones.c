@@ -1,9 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
-FILE *miArchivo; // Variable de tipo FILE
-
+FILE *miArchivo;
 struct equipos {
     char nomCompetencia[50];
     char nomEquipo[16][50];
@@ -97,7 +95,6 @@ void cargaEquipos(struct equipos *crearFixture) {
 }
 
 void crearArchivo(struct equipos *archivo) {
-    FILE *miArchivo;
     miArchivo = fopen("fixture.txt", "w");
     if (miArchivo == NULL) {
         printf("Error al abrir el archivo.\n");
