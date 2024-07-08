@@ -192,7 +192,7 @@ void mostrarDatosArchivo(struct equipos mostrarDatos) {
 }
 
 void mostrarUngrupo(struct equipos *cargarGrupo) {
-    FILE *miArchivo = fopen("fixture.txt", "r");
+    miArchivo = fopen("fixture.txt", "r");
     if (miArchivo == NULL) {
         printf("Error al abrir el archivo.\n");
         return;
