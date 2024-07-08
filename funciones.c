@@ -100,31 +100,35 @@ void crearArchivo(struct equipos *archivo) {
         printf("Error al abrir el archivo.\n");
         return;
     }
-    fprintf(miArchivo, "\n================= GRUPO A =================\n");
-    fprintf(miArchivo, "Equipo            P    Pts  Gf   Gc    Dg\n");
+    fprintf(miArchivo, "\n======================================== GRUPO A ==========================================\n");
+    fprintf(miArchivo, "| Equipo             | P    | Pts  | Gf   | Gc   | Dg   |\n");
+    fprintf(miArchivo, "|--------------------|------|------|------|------|------|\n");
     for (int i = 0; i < 4; i++) {
-        fprintf(miArchivo, "%-15s   %d   %2d   %2d   %2d    %2d\n", archivo->nomEquipo[i],
+        fprintf(miArchivo, "| %-18s | %4d | %4d | %4d | %4d | %4d |\n", archivo->nomEquipo[i],
                 archivo->partidosJugados[i], archivo->puntos[i], archivo->golesFavor[i],
                 archivo->golesContra[i], archivo->diferenciaGoles[i]);
     }
-    fprintf(miArchivo, "\n================= GRUPO B =================\n");
-    fprintf(miArchivo, "Equipo            P    Pts  Gf   Gc    Dg\n");
+    fprintf(miArchivo, "\n======================================== GRUPO B ==========================================\n");
+    fprintf(miArchivo, "| Equipo             | P    | Pts  | Gf   | Gc   | Dg   |\n");
+    fprintf(miArchivo, "|--------------------|------|------|------|------|------|\n");
     for (int i = 4; i < 8; i++) {
-        fprintf(miArchivo, "%-15s   %d   %2d   %2d   %2d    %2d\n", archivo->nomEquipo[i],
+        fprintf(miArchivo, "| %-18s | %4d | %4d | %4d | %4d | %4d |\n", archivo->nomEquipo[i],
                 archivo->partidosJugados[i], archivo->puntos[i], archivo->golesFavor[i],
                 archivo->golesContra[i], archivo->diferenciaGoles[i]);
     }
-    fprintf(miArchivo, "\n================= GRUPO C =================\n");
-    fprintf(miArchivo, "Equipo            P    Pts  Gf   Gc    Dg\n");
+    fprintf(miArchivo, "\n======================================== GRUPO C ==========================================\n");
+    fprintf(miArchivo, "| Equipo             | P    | Pts  | Gf   | Gc   | Dg   |\n");
+    fprintf(miArchivo, "|--------------------|------|------|------|------|------|\n");
     for (int i = 8; i < 12; i++) {
-        fprintf(miArchivo, "%-15s   %d   %2d   %2d   %2d    %2d\n", archivo->nomEquipo[i],
+        fprintf(miArchivo, "| %-18s | %4d | %4d | %4d | %4d | %4d |\n", archivo->nomEquipo[i],
                 archivo->partidosJugados[i], archivo->puntos[i], archivo->golesFavor[i],
                 archivo->golesContra[i], archivo->diferenciaGoles[i]);
     }
-    fprintf(miArchivo, "\n================= GRUPO D =================\n");
-    fprintf(miArchivo, "Equipo            P    Pts  Gf   Gc    Dg\n");
+   fprintf(miArchivo, "\n======================================== GRUPO D ==========================================\n");
+    fprintf(miArchivo, "| Equipo             | P    | Pts  | Gf   | Gc   | Dg   |\n");
+    fprintf(miArchivo, "|--------------------|------|------|------|------|------|\n");
     for (int i = 12; i < 16; i++) {
-        fprintf(miArchivo, "%-15s   %d   %2d   %2d   %2d    %2d\n", archivo->nomEquipo[i],
+        fprintf(miArchivo, "| %-18s | %4d | %4d | %4d | %4d | %4d |\n", archivo->nomEquipo[i],
                 archivo->partidosJugados[i], archivo->puntos[i], archivo->golesFavor[i],
                 archivo->golesContra[i], archivo->diferenciaGoles[i]);
     }
@@ -132,6 +136,7 @@ void crearArchivo(struct equipos *archivo) {
     fclose(miArchivo);
     printf("Archivo 'fixture.txt' creado exitosamente.\n");
 }
+
 void verFixture(struct equipos *cargarGrupo) {
     int opcion;
     do {
