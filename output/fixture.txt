@@ -1,0 +1,28 @@
+
+================= GRUPO A =================
+Equipo            P    Pts  Gf   Gc    Dg
+ARGENTINA         0    0    0    0     0
+CANADA            0    0    0    0     0
+CHILE             0    0    0    0     0
+PERU              0    0    0    0     0
+
+================= GRUPO B =================
+Equipo            P    Pts  Gf   Gc    Dg
+VENEZUELA         0    0    0    0     0
+ECUADOR           0    0    0    0     0
+MEXICO            0    0    0    0     0
+JAMAICA           0    0    0    0     0
+
+================= GRUPO C =================
+Equipo            P    Pts  Gf   Gc    Dg
+URUGUAY           0    0    0    0     0
+PANAMA            0    0    0    0     0
+ESTADOS UNIDOS    0    0    0    0     0
+BOLIVIA           0    0    0    0     0
+
+================= GRUPO D =================
+Equipo            P    Pts  Gf   Gc    Dg
+COLOMBIA          0    0    0    0     0
+BRASIL            0    0    0    0     0
+COSTA RICA        0    0    0    0     0
+PARAGUAY          0    0    0    0     0
