@@ -100,42 +100,55 @@ void crearArchivo(struct equipos *archivo) {
         printf("Error al abrir el archivo.\n");
         return;
     }
-    fprintf(miArchivo, "\n======================================== GRUPO A ==========================================\n");
-    fprintf(miArchivo, "| Equipo             | P    | Pts  | Gf   | Gc   | Dg   |\n");
-    fprintf(miArchivo, "|--------------------|------|------|------|------|------|\n");
+    
+    fprintf(miArchivo, "\n================================= GRUPO A ===================================\n");
+    fprintf(miArchivo, "| Equipo             | PJ   | PG   | PE   | PP   | Pts  | GF   | GC   | DG   |\n");
+    fprintf(miArchivo, "|--------------------|------|------|------|------|------|------|------|------|\n");
     for (int i = 0; i < 4; i++) {
-        fprintf(miArchivo, "| %-18s | %4d | %4d | %4d | %4d | %4d |\n", archivo->nomEquipo[i],
-                archivo->partidosJugados[i], archivo->puntos[i], archivo->golesFavor[i],
+        fprintf(miArchivo, "| %-18s | %4d | %4d | %4d | %4d | %4d | %4d | %4d | %4d |\n", archivo->nomEquipo[i],
+                archivo->partidosJugados[i], archivo->partidosGanados[i], archivo->empatados[i],
+                archivo->perdidos[i], archivo->puntos[i], archivo->golesFavor[i],
                 archivo->golesContra[i], archivo->diferenciaGoles[i]);
     }
-    fprintf(miArchivo, "\n======================================== GRUPO B ==========================================\n");
-    fprintf(miArchivo, "| Equipo             | P    | Pts  | Gf   | Gc   | Dg   |\n");
-    fprintf(miArchivo, "|--------------------|------|------|------|------|------|\n");
+    fprintf(miArchivo, "==============================================================================\n");
+
+    fprintf(miArchivo, "\n================================== GRUPO B ==================================\n");
+    fprintf(miArchivo, "| Equipo             | PJ   | PG   | PE   | PP   | Pts  | GF   | GC   | DG   |\n");
+    fprintf(miArchivo, "|--------------------|------|------|------|------|------|------|------|------|\n");
     for (int i = 4; i < 8; i++) {
-        fprintf(miArchivo, "| %-18s | %4d | %4d | %4d | %4d | %4d |\n", archivo->nomEquipo[i],
-                archivo->partidosJugados[i], archivo->puntos[i], archivo->golesFavor[i],
+        fprintf(miArchivo, "| %-18s | %4d | %4d | %4d | %4d | %4d | %4d | %4d | %4d |\n", archivo->nomEquipo[i],
+                archivo->partidosJugados[i], archivo->partidosGanados[i], archivo->empatados[i],
+                archivo->perdidos[i], archivo->puntos[i], archivo->golesFavor[i],
                 archivo->golesContra[i], archivo->diferenciaGoles[i]);
     }
-    fprintf(miArchivo, "\n======================================== GRUPO C ==========================================\n");
-    fprintf(miArchivo, "| Equipo             | P    | Pts  | Gf   | Gc   | Dg   |\n");
-    fprintf(miArchivo, "|--------------------|------|------|------|------|------|\n");
+    fprintf(miArchivo, "==============================================================================\n");
+
+    fprintf(miArchivo, "\n================================ GRUPO C ====================================\n");
+    fprintf(miArchivo, "| Equipo             | PJ   | PG   | PE   | PP   | Pts  | GF   | GC   | DG   |\n");
+    fprintf(miArchivo, "|--------------------|------|------|------|------|------|------|------|------|\n");
     for (int i = 8; i < 12; i++) {
-        fprintf(miArchivo, "| %-18s | %4d | %4d | %4d | %4d | %4d |\n", archivo->nomEquipo[i],
-                archivo->partidosJugados[i], archivo->puntos[i], archivo->golesFavor[i],
+        fprintf(miArchivo, "| %-18s | %4d | %4d | %4d | %4d | %4d | %4d | %4d | %4d |\n", archivo->nomEquipo[i],
+                archivo->partidosJugados[i], archivo->partidosGanados[i], archivo->empatados[i],
+                archivo->perdidos[i], archivo->puntos[i], archivo->golesFavor[i],
                 archivo->golesContra[i], archivo->diferenciaGoles[i]);
     }
-   fprintf(miArchivo, "\n======================================== GRUPO D ==========================================\n");
-    fprintf(miArchivo, "| Equipo             | P    | Pts  | Gf   | Gc   | Dg   |\n");
-    fprintf(miArchivo, "|--------------------|------|------|------|------|------|\n");
+    fprintf(miArchivo, "================================================================================\n");
+
+    fprintf(miArchivo, "\n================================ GRUPO D ====================================\n");
+    fprintf(miArchivo, "| Equipo             | PJ   | PG   | PE   | PP   | Pts  | GF   | GC   | DG   |\n");
+    fprintf(miArchivo, "|--------------------|------|------|------|------|------|------|------|------|\n");
     for (int i = 12; i < 16; i++) {
-        fprintf(miArchivo, "| %-18s | %4d | %4d | %4d | %4d | %4d |\n", archivo->nomEquipo[i],
-                archivo->partidosJugados[i], archivo->puntos[i], archivo->golesFavor[i],
+        fprintf(miArchivo, "| %-18s | %4d | %4d | %4d | %4d | %4d | %4d | %4d | %4d |\n", archivo->nomEquipo[i],
+                archivo->partidosJugados[i], archivo->partidosGanados[i], archivo->empatados[i],
+                archivo->perdidos[i], archivo->puntos[i], archivo->golesFavor[i],
                 archivo->golesContra[i], archivo->diferenciaGoles[i]);
     }
+    fprintf(miArchivo, "===============================================================================\n");
 
     fclose(miArchivo);
     printf("Archivo 'fixture.txt' creado exitosamente.\n");
 }
+
 
 void verFixture(struct equipos *cargarGrupo) {
     int opcion;
@@ -211,16 +224,10 @@ void mostrarUngrupo(struct equipos *cargarGrupo) {
     int mostrar = 0;
     int grupoEncontrado = 0;
     while (fgets(linea, sizeof(linea), miArchivo)) {
-        if (strstr(linea, "GRUPO A") != NULL && nombreGrupo == 'A') {
-            mostrar = 1;
-            grupoEncontrado = 1;
-        } else if (strstr(linea, "GRUPO B") != NULL && nombreGrupo == 'B') {
-            mostrar = 1;
-            grupoEncontrado = 1;
-        } else if (strstr(linea, "GRUPO C") != NULL && nombreGrupo == 'C') {
-            mostrar = 1;
-            grupoEncontrado = 1;
-        } else if (strstr(linea, "GRUPO D") != NULL && nombreGrupo == 'D') {
+        if ((strstr(linea, "GRUPO A") != NULL && (nombreGrupo == 'A' || nombreGrupo == 'a')) ||
+            (strstr(linea, "GRUPO B") != NULL && (nombreGrupo == 'B' || nombreGrupo == 'b')) ||
+            (strstr(linea, "GRUPO C") != NULL && (nombreGrupo == 'C' || nombreGrupo == 'c')) ||
+            (strstr(linea, "GRUPO D") != NULL && (nombreGrupo == 'D' || nombreGrupo == 'd'))) {
             mostrar = 1;
             grupoEncontrado = 1;
         } else if (strstr(linea, "GRUPO") != NULL && grupoEncontrado == 1) {
